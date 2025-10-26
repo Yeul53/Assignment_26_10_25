@@ -10,8 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		glue= {"stepDefinitions"},
 		tags = "@mvsd",
 		monochrome=true,
-		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		)
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class TestRunner {
 
 }

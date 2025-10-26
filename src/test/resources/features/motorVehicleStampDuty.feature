@@ -11,5 +11,5 @@ Feature: Motor vehicle Stamp Duty checks
     Then A user checks the duty payable is <dutyPayable>
 
     Examples:
-      | purchaseValue | dutyPayable | 
-      | 10,000 | 300 |
+      | purchaseValue | dutyPayable |
+      | 10,000        | 300         |

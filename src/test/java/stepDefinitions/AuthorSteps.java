@@ -35,6 +35,5 @@ public class AuthorSteps {
 		// Check the value returned
 		Assertions.assertThat(actualValue.contains(value));
 		CommonSteps.addAPILog(response, "Comparison successful");
-		
 	}
 }
