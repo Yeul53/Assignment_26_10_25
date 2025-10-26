@@ -1,0 +1,6 @@
+repository\RevenueNSWCalculatorsPage.class
+stepDefinitions\CommonSteps.class
+repository\MotorVehicleStampDutyHomePage.class
+stepDefinitions\MotorVehicleStampDutySteps.class
+stepDefinitions\AuthorSteps.class
+runner\TestRunner.class
