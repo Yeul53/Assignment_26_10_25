@@ -25,8 +25,7 @@ public class RevenueNSWCalculatorsPage {
 
 	@FindBy(xpath = "//td[contains(text(),'Duty payable')]/following-sibling::td")
 	WebElement resultDutyPayableTxt;
-	
-	
+
 	public RevenueNSWCalculatorsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -43,13 +42,13 @@ public class RevenueNSWCalculatorsPage {
 	public WebElement calculateBtnPath() {
 		return calculateBtn;
 	}
-	
+
 	public WebElement resultPurchasePriceTxtPath() {
 		return resultPurchasePriceTxt;
-	}	
+	}
 
 	public WebElement resultDutyPayablePath() {
 		return resultDutyPayableTxt;
-	}	
+	}
 
 }
