@@ -1,29 +1,29 @@
 package stepDefinitions;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 import repository.MotorVehicleStampDutyHomePage;
 import repository.RevenueNSWCalculatorsPage;
 
 import org.junit.Assert;
-import java.time.Duration;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MotorVehicleStampDutySteps {
 
+	// initialize variables
 	WebDriver driver;
 	private MotorVehicleStampDutyHomePage mvsdhp;
 	private RevenueNSWCalculatorsPage calcPage;
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	@After
+	public void teardown() {
+		CommonSteps.browserTearDown(driver);
+	}
 
 	@Given("the browser is open")
 	public void openBrowser() {
 		// driver setup
-		System.getProperty("webdriver.edge.driver", "src/test/resources/drivers/msedgedriver.exe");
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver = CommonSteps.browserStartUp();
 	}
 
 	@When("A user is on the motor vehicle stamp duty page")
@@ -70,14 +70,15 @@ public class MotorVehicleStampDutySteps {
 	@Then("A user checks the duty payable is (.*)$")
 	public void validateCalculatedValue(String dutyPayable) throws InterruptedException {
 		// Add log to prove assert
-		CommonSteps.addLog(driver, "Comparing the expected Duty Payable $" + dutyPayable + ".00 with "+ calcPage.resultDutyPayablePath().getAttribute("textContent"));
+		CommonSteps.addLog(driver, "Comparing the expected Duty Payable $" + dutyPayable + ".00 with " + calcPage.resultDutyPayablePath().getAttribute("textContent"));
 		// Retrieve duty payable and validate
 		Assert.assertEquals(calcPage.resultDutyPayablePath().getAttribute("textContent"), "$" + dutyPayable + ".00");
-		// Click to ensure element is visible
-		calcPage.resultDutyPayablePath().click();
 		// Add logs and screenshot to report
 		CommonSteps.addLog(driver, "Comparison successful");
+		// Click to ensure element is visible
+		calcPage.resultDutyPayablePath().click();
+		calcPage.resultPurchasePriceTxtPath().click();
+		calcPage.resultPassengerVehicleTxtPath().click();
 		CommonSteps.takeScreenshot(driver, "Results calculation Screenshot");
-		driver.quit();
 	}
 }
