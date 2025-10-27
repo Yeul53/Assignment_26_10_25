@@ -11,7 +11,7 @@ Automation framework built using the tools Selenium for browser, RestAssured for
 To build the maven project open the project in either the IDE or the terminal at the repository and running `mvn clean install`. The command will download any necessary dependencies
 
 ## Running Test Cases
-To specify the test case to run update the tags property in the TestRunner file, the current tags in the project are `@mvsd` and `@author`
+To specify the test case to run update the tags property in the TestRunner file, the current tags in the project are `@dutyPayablePassengerVehicle` and `@GET_author`
 
 To run test cases use `mvn clean test` or `mvn test` specified in the tag of the TestRunner. Using clean will delete the target folder, deleting previous reports.
 
