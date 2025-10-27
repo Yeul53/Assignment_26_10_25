@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features="src/test/resources/features", 
 		glue= {"stepDefinitions"},
-		tags = "@mvsd",
+		tags = "@dutyPayablePassangerVehicle",
 		monochrome=true,
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class TestRunner {

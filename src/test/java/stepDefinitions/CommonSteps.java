@@ -1,8 +1,11 @@
 package stepDefinitions;
 
+import java.time.Duration;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
@@ -16,8 +19,7 @@ public class CommonSteps {
 		// take screenshot
 		String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 		// embed into report
-		ExtentCucumberAdapter.getCurrentStep().info("&nbsp;&nbsp;&nbsp;" + message,
-		MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+		ExtentCucumberAdapter.getCurrentStep().info("&nbsp;&nbsp;&nbsp;" + message, MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
 	}
 
 	public static void addLog(WebDriver driver, String message) {
@@ -28,6 +30,18 @@ public class CommonSteps {
 	public static void addAPILog(Response response, String message) {
 		// logs for api
 		ExtentCucumberAdapter.getCurrentStep().log(Status.INFO, "&nbsp;&nbsp;&nbsp;" + message);
+	}
+
+	public static WebDriver browserStartUp() {
+		System.getProperty("webdriver.edge.driver", "src/test/resources/drivers/msedgedriver.exe");
+		WebDriver driver = new EdgeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		return driver;
+	}
+
+	public static void browserTearDown(WebDriver driver) {
+		driver.quit();
 	}
 
 }

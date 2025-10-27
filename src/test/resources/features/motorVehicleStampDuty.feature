@@ -1,7 +1,8 @@
-Feature: Motor vehicle Stamp Duty checks
+@motorVehicleStampDuty
+Feature: Motor vehicle Stamp Duty test cases
 
-  @mvsd
-  Scenario: Check the motor vehicle stamp duty value
+  @dutyPayablePassangerVehicle
+  Scenario: Check the duty payable on a passenger vehicle for a motor vehicle registration
     Given the browser is open
     When A user is on the motor vehicle stamp duty page
     Then A user clicks the check online button

@@ -1,7 +1,8 @@
-Feature: Testing API functions for Open Library Authors
+@openLibraryAPI
+Feature: Testing API functions for Open Library APIs
 
-  @author
-  Scenario: Check response from Open Library
+  @GET_author
+  Scenario: Validate GET response from Open Library
     Given a REST API endpoint
     When a user sends a GET request
     Then a user validates the <name> and <value>

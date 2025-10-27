@@ -51,4 +51,8 @@ public class RevenueNSWCalculatorsPage {
 		return resultDutyPayableTxt;
 	}
 
+	public WebElement resultPassengerVehicleTxtPath() {
+		return resultPassengerVehicleTxt;
+	}
+
 }
