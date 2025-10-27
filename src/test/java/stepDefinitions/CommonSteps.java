@@ -35,6 +35,7 @@ public class CommonSteps {
 	public static WebDriver browserStartUp() {
 		System.getProperty("webdriver.edge.driver", "src/test/resources/drivers/msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		return driver;
