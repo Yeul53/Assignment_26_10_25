@@ -15,7 +15,7 @@ public class MotorVehicleStampDutySteps {
 	private MotorVehicleStampDutyHomePage mvsdhp;
 	private RevenueNSWCalculatorsPage calcPage;
 
-	@After
+	@After("@motorVehicleStampDuty")
 	public void teardown() {
 		CommonSteps.browserTearDown(driver);
 	}
